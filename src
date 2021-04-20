@@ -1,0 +1,84 @@
+import java.util.*;
+  
+public class javaPQ {
+   
+	public static void main(String[] args)
+    {
+        //Create for intes
+        PriorityQueue <Integer> queue = new PriorityQueue <Integer> ();
+  
+        for(int i=1; i<=25; i=i+3)
+        {
+            //populaiton adding
+            queue.add(new Integer (i));
+        }
+  
+        System.out.println("New Queue : " + queue);
+  
+        //compare (generator autosorted)
+        Comparator queue_comp = queue.comparator();
+        System.out.println("Compare : " + queue_comp);
+  
+        // check for included value 
+        boolean check = queue.contains(6);
+        System.out.println("contains (value) : " + check);
+  
+        // outval
+        Iterator g_iterator = queue.iterator();
+  
+        System.out.print("Iterate Value : ");
+        while(g_iterator.hasNext())
+        {
+            System.out.print(g_iterator.next() + " ");
+        }
+        System.out.println("");
+  
+        // insert value
+        queue.offer(2048);
+        System.out.println("New Queue : " + queue);
+  
+        // peek for head
+        System.out.println("peek(head) : " + queue.peek());
+  
+        //poll for head 
+        int h = queue.poll();
+        System.out.println("poll(head) : " + h);
+        System.out.println("Poll Queue : " + queue);
+  
+        // remove method
+        boolean r = queue.remove(7);
+        System.out.println("remove test : " + r);
+        System.out.println("Queue after remove : " + queue);
+  
+        // size after removal 
+        System.out.println("New Queue Size : " + queue.size());
+  
+        // to array 
+        Object[] g = queue.toArray();
+        System.out.print ( "Array from PriorityQueue : ");
+  
+        for ( int i = 0; i<g.length; i++ )
+        {
+            System.out.print (g[i].toString() + " ") ;
+        }
+  
+        System.out.println("\n");
+  
+        // array of s(x)
+        Integer[] g2 = new Integer[5];
+        Integer[] g1 = queue.toArray(g2);
+        System.out.print ( "Array from PriorityQueue of size 5 : ");
+  
+        for ( int i = 0; i<g1.length; i++ )
+        {
+            System.out.print (g1[i].toString() + " ") ;
+        }
+  
+        System.out.println("\n");
+  
+        // reset 
+        queue.clear();
+        System.out.println("PriorityQueue after clear() : " + queue);
+  
+    }
+}
